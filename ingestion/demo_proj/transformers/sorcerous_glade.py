@@ -1,0 +1,37 @@
+import polars as pl 
+
+if 'transformer' not in globals():
+    from mage_ai.data_preparation.decorators import transformer
+if 'test' not in globals():
+    from mage_ai.data_preparation.decorators import test
+
+
+@transformer
+def transform(df, *args, **kwargs):
+    """
+    Round float columns to two decimal places
+
+    Args:
+        data: The output from the upstream parent block
+        args: The output from any additional upstream blocks (if applicable)
+
+    Returns:
+        DataFrame
+    """
+
+    return df.with_columns(
+        pl.col('open').round(2), 
+        pl.col('high').round(2), 
+        pl.col('low').round(2), 
+        pl.col('close').round(2), 
+        pl.col('adjusted_close').round(2), 
+        pl.col('dividend_amount').round(2)
+    )
+
+
+@test
+def test_output(output, *args) -> None:
+    """
+    Template code for testing the output of the block.
+    """
+    assert output is not None, 'The output is undefined'
