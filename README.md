@@ -43,8 +43,8 @@ This project focuses on **ingesting IBM stock price data** using **Mage.ai** and
 
 ### **1 Clone the Repository**
 ```bash
-git clone https://github.com/ganeshtiwari/stock-ingestion-visualization.git
-cd stock-ingestion-visualization
+git clone https://github.com/ganeshtiwari/workshop-dashboard.git
+cd workshop-dashboard
 ```
 
 ### **2 Set Up Data Ingestion**
